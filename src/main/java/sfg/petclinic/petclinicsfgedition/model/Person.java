@@ -18,5 +18,7 @@ public class Person {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+
+        //additional commit to close down issue #11
     }
 }
