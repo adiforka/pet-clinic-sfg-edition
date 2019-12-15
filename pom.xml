@@ -43,6 +43,7 @@
 
                 <configuration>
                     <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
             </plugin>
         </plugins>
@@ -51,7 +52,7 @@
     <!--otherwise "Missing required setting: scm connection or developerConnection must be specified".-->
     <scm>
         <developerConnection>scm:git:https://github.com/adiforka/pet-clinic-sfg-edition.git</developerConnection>
-      <tag>pet-clinic-sfg-edition-0.0.1</tag>
+        <tag>HEAD</tag>
   </scm>
 
 </project>
