@@ -11,6 +11,9 @@
 
     <artifactId>pet-clinic-data</artifactId>
 
+    <!--replacing the bit in executions above plugins. avoiding creation of
+    a fat executable jar for data module with maven dependencies in it.
+    Necessary to skip this property from Spring Boot 2.1 and on-->
     <properties>
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
     </properties>
@@ -20,6 +23,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+
+
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>

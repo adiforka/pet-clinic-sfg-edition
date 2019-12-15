@@ -17,6 +17,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+
     <groupId>sfg.petclinic</groupId>
     <artifactId>pet-clinic-sfg-edition</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -27,17 +28,29 @@
         <java.version>11</java.version>
     </properties>
 
-    <dependencies>
-
-    </dependencies>
-
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!--adding maven release plugin-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <!--needed to write out a plugin version from maven tab available plugins but then didn't need it anymore-->
+                <artifactId>maven-release-plugin</artifactId>
+                <!--adding a config step so it prepares a release but does not deploy. goals set to deploy by default
+                but now it will stop after install. check maven tab lifecycle list-->
+                <configuration>
+                    <goals>install</goals>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
+    <!--otherwise "Missing required setting: scm connection or developerConnection must be specified".-->
+    <scm>
+        <developerConnection>scm:git:https://github.com/adiforka/pet-clinic-sfg-edition.git</developerConnection>
+    </scm>
 
 </project>
