@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <packaging>pom</packaging>
@@ -13,13 +14,13 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.9.RELEASE</version>
-        <relativePath /> <!-- lookup parent from repository -->
+        <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
 
     <groupId>sfg.petclinic</groupId>
     <artifactId>pet-clinic-sfg-edition</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>pet-clinic-sfg-edition</name>
     <description>Pet Clinic SFG Course Edition</description>
 
@@ -40,7 +41,6 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <!--adding a config step so it prepares a release but does not deploy. goals set to deploy by default
                 but now it will stop after install. check maven tab lifecycle list-->
-
                 <configuration>
                     <goals>install</goals>
                 </configuration>
@@ -51,7 +51,6 @@
     <!--otherwise "Missing required setting: scm connection or developerConnection must be specified".-->
     <scm>
         <developerConnection>scm:git:https://github.com/adiforka/pet-clinic-sfg-edition.git</developerConnection>
-      <tag>pet-clinic-sfg-edition-0.0.1</tag>
-  </scm>
+    </scm>
 
 </project>
