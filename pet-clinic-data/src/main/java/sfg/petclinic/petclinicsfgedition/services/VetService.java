@@ -1,18 +1,16 @@
 package sfg.petclinic.petclinicsfgedition.services;
 
-import sfg.petclinic.petclinicsfgedition.model.Pet;
-
 import java.util.Set;
 
 /*implementing a service layer so controllers don't interact with repositories directly and we can have
 more flexibility with actual data sources (HashMap, Spring Data JPA, JDBC etc.)
  */
 
-public interface PetService {
+public interface VetService {
 
-    Pet findById(Long id);
+    VetService findById(Long id);
 
-    Pet save(Pet pet);
+    VetService save(VetService vetService);
 
-    Set<Pet> findAll();
+    Set<VetService> findAll();
 }

@@ -1,17 +1,8 @@
 package sfg.petclinic.petclinicsfgedition.model;
 
-public class Person {
-    private Long id;
+public class Person extends BaseEntity {
     private String firstName;
     private String lastName;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getFirstName() {
         return firstName;
