@@ -19,7 +19,7 @@
 
     <groupId>sfg.petclinic</groupId>
     <artifactId>pet-clinic-sfg-edition</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>pet-clinic-sfg-edition</name>
     <description>Pet Clinic SFG Course Edition</description>
 
