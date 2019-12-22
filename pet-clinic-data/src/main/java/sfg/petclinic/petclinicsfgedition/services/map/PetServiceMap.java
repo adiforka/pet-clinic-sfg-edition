@@ -23,12 +23,16 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements Crud
     }
 
     @Override
+    public void deleteById(Long id) {
+        super.deleteById(id);
+    }
+
+    @Override
     public void delete(Pet pet) {
         super.delete(pet);
     }
 
-    @Override
-    public void deleteById(Long id) {
-        super.deleteById(id);
-    }
+
+
+
 }

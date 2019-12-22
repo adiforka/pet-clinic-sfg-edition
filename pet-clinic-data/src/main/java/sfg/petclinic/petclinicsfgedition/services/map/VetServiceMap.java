@@ -6,7 +6,6 @@ import sfg.petclinic.petclinicsfgedition.services.CrudService;
 import java.util.Set;
 
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
-
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
@@ -23,12 +22,16 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements Crud
     }
 
     @Override
+    public void deleteById(Long id) {
+        super.deleteById(id);
+    }
+
+    @Override
     public void delete(Vet vet) {
         super.delete(vet);
     }
 
-    @Override
-    public void deleteById(Long id) {
-        super.deleteById(id);
-    }
+
+
+
 }

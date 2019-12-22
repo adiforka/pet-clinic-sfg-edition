@@ -7,7 +7,7 @@ more flexibility with actual data sources (HashMap, Spring Data JPA, JDBC etc.)
  */
 public interface OwnerService extends CrudService<Owner, Long> {
 
-    //only method not mandated by the parent CrudService<T, ID>
+    //only method not already implemented for it by the parent CrudService<T, ID>
     Owner findByLastName(String lastName);
 
 }

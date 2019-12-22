@@ -6,11 +6,19 @@ import sfg.petclinic.petclinicsfgedition.services.CrudService;
 import java.util.Set;
 
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
-
-
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
+    }
+
+    @Override
+    public Owner findById(Long id) {
+        return super.findById(id);
+    }
+
+    @Override
+    public Owner save(Owner owner) {
+        return super.save(owner.getid(), owner);
     }
 
     @Override
@@ -23,13 +31,7 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
         super.delete(owner);
     }
 
-    @Override
-    public Owner save(Owner owner) {
-        return super.save(owner.getid(), owner);
-    }
 
-    @Override
-    public Owner findById(Long id) {
-        return super.findById(id);
-    }
+
+
 }

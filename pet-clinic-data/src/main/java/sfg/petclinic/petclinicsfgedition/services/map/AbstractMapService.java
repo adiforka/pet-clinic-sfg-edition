@@ -5,13 +5,12 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-//using generic types to be able to accept types flexibly
-public abstract class AbstractMapService<T, ID> {
+public abstract class AbstractMapService<T, ID>{
 
     protected Map<ID, T> map = new HashMap<>();
 
-    Set<T> findAll(){
-        return new HashSet<>(map.values());
+    Set<T> findAll() {
+        return new HashSet<T>(map.values());
     }
 
     T findById(ID id) {
@@ -24,7 +23,7 @@ public abstract class AbstractMapService<T, ID> {
     }
 
     void delete(T object) {
-        map.entrySet().removeIf(entry -> entry.equals(object));
+        map.entrySet().removeIf(entry -> entry.getValue().equals(object));
     }
 
     void deleteById(ID id) {
