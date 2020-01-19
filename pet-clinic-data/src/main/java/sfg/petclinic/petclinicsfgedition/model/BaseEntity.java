@@ -7,11 +7,11 @@ public class BaseEntity implements Serializable {
     //implementing box-type Long id field as per Hibernate recommendation to use nullable types
     private Long id;
 
-    public Long getid() {
+    public Long getId() {
         return id;
     }
 
-    public void setid(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

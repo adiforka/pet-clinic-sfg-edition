@@ -1,11 +1,11 @@
 package sfg.petclinic.petclinicsfgedition.services.map;
 
 import sfg.petclinic.petclinicsfgedition.model.Pet;
-import sfg.petclinic.petclinicsfgedition.services.CrudService;
+import sfg.petclinic.petclinicsfgedition.services.PetService;
 
 import java.util.Set;
 
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {
@@ -19,7 +19,7 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements Crud
 
     @Override
     public Pet save(Pet pet) {
-        return super.save(pet.getid(), pet);
+        return super.save(pet.getId(), pet);
     }
 
     @Override

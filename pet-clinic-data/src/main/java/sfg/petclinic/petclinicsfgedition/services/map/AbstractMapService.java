@@ -10,7 +10,7 @@ public abstract class AbstractMapService<T, ID>{
     protected Map<ID, T> map = new HashMap<>();
 
     Set<T> findAll() {
-        return new HashSet<T>(map.values());
+        return new HashSet<>(map.values());
     }
 
     T findById(ID id) {
