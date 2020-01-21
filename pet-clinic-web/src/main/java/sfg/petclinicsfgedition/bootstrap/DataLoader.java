@@ -1,15 +1,16 @@
 package sfg.petclinicsfgedition.bootstrap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import sfg.petclinic.petclinicsfgedition.model.Owner;
-import sfg.petclinic.petclinicsfgedition.model.Vet;
-import sfg.petclinic.petclinicsfgedition.services.OwnerService;
-import sfg.petclinic.petclinicsfgedition.services.VetService;
-import sfg.petclinic.petclinicsfgedition.services.map.OwnerServiceMap;
-import sfg.petclinic.petclinicsfgedition.services.map.VetServiceMap;
+import sfg.petclinicsfgedition.model.Owner;
+import sfg.petclinicsfgedition.model.Vet;
+import sfg.petclinicsfgedition.services.OwnerService;
+import sfg.petclinicsfgedition.services.VetService;
 
 /*this bootstrap class is to load up some known data at the boot-up of the app*/
+
+/*bootstrap to load startup data or any startup process in a package called bootstrap*/
 
 /*when this is made a component, it will be registered in the application context, which, when up and ready,
 will execute the run method*/
@@ -20,9 +21,12 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        this.ownerService = new OwnerServiceMap();
-        this.vetService = new VetServiceMap();
+    //no longer need to state @Autowired with constructor-based DI. still do it for intention stating
+    @Autowired
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
+
     }
 
     @Override
