@@ -5,6 +5,27 @@
     <title>List of Owners</title>
 </head>
 <body>
+<!--/*@thymesVar id="owner" type=sfg.petclinicsfgedition.model.Owner*/-->
 <h1 th:text="'List of Owners'">List of Owners...</h1>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--/*from the object returned by model "owners"--iterate through it and get every instance a row
+        in every row get an id, firstName, lastName properties as columns*/-->
+        <tr th:each="owner : ${owners}">
+            <!--the question mark in owner?.id is a null safe operator in case owner comes back as null. not needed here-->
+            <td th:text="${owner?.id}">1</td>
+            <td th:text="${owner.firstName}">Jeffrey</td>
+            <td th:text="${owner.lastName}">Kaminsky</td>
+        </tr>
+        </tbody>
+    </table>
 </body>
 </html>
