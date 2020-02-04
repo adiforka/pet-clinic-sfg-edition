@@ -1,5 +1,6 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <body>
+
   <form>
     <th:block th:fragment="input (label, name, type)">
       <div th:with="valid=${!#fields.hasErrors(name)}"
