@@ -2,12 +2,24 @@ package sfg.petclinicsfgedition.services.map;
 
 import org.springframework.stereotype.Service;
 import sfg.petclinicsfgedition.model.Owner;
+import sfg.petclinicsfgedition.model.Pet;
 import sfg.petclinicsfgedition.services.OwnerService;
+import sfg.petclinicsfgedition.services.PetService;
+import sfg.petclinicsfgedition.services.PetTypeService;
 
 import java.util.Set;
 
 @Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
+
+    private final PetTypeService petTypeService;
+    private final PetService petService;
+
+    public OwnerServiceMap(PetTypeService petTypeService, PetService petService) {
+        this.petTypeService = petTypeService;
+        this.petService = petService;
+    }
+
     @Override
     public Set<Owner> findAll() {
         return super.findAll();
@@ -26,7 +38,33 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner save(Owner owner) {
-        return super.save(owner);
+
+        //making sure we have IDs for Pet and PetType (as of now--UNTESTED)
+        if (owner != null) {
+            if (owner.getPets() != null) {
+                owner.getPets().forEach(pet ->
+                {
+                    if (pet.getPetType() != null) {
+                        //if the pet type id is null, the pet type has not been saved before, so we need to save it
+                        if (pet.getPetType().getId() == null) {
+                            pet.setPetType(petTypeService.save(pet.getPetType()));
+                        }
+                    } else {
+                        throw new RuntimeException("Pet Type is Required");
+                    }
+
+                    if (pet.getId() == null) {
+                        Pet savedPet = petService.save(pet);
+                        /*so if ID has been set for Pet in the map,
+                        why is he setting it for Pet again here, using same value, no less?*/
+                        pet.setId(savedPet.getId());
+                    }
+                });
+
+            }
+            return super.save(owner);
+        } else
+            return null;
     }
 
     @Override

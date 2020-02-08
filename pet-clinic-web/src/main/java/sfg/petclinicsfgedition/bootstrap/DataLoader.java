@@ -4,11 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import sfg.petclinicsfgedition.model.Owner;
+import sfg.petclinicsfgedition.model.Pet;
 import sfg.petclinicsfgedition.model.PetType;
 import sfg.petclinicsfgedition.model.Vet;
 import sfg.petclinicsfgedition.services.OwnerService;
 import sfg.petclinicsfgedition.services.PetTypeService;
 import sfg.petclinicsfgedition.services.VetService;
+
+import java.time.LocalDate;
 
 /*this bootstrap class is to load up some known data at the boot-up of the app*/
 
@@ -29,7 +32,6 @@ public class DataLoader implements CommandLineRunner {
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
-
         this.petTypeService = petTypeService;
     }
 
@@ -44,18 +46,35 @@ public class DataLoader implements CommandLineRunner {
         dog.setName("Cat");
         PetType savedCatType  = petTypeService.save(cat);
 
-
         Owner owner1 = new Owner();
         owner1.setFirstName("Juju");
         owner1.setLastName("McBeal");
-
+        owner1.setAddress("12 JSON st.");
+        owner1.setCity("Johannesburg");
+        owner1.setTelephone("334-332-355");
         ownerService.save(owner1);
+
+        Pet jujusPet = new Pet();
+        jujusPet.setPetType(savedDogType);
+        jujusPet.setOwner(owner1);
+        jujusPet.setBirthday(LocalDate.now());
+        jujusPet.setName("Butch");
+        owner1.getPets().add(jujusPet);
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Daddy");
         owner2.setLastName("McPhee");
-
+        owner2.setAddress("342 Peekaboo Av.");
+        owner2.setCity("Chicago");
+        owner2.setTelephone("555-643-312");
         ownerService.save(owner2);
+
+        Pet daddysPet = new Pet();
+        daddysPet.setPetType(savedCatType);
+        daddysPet.setOwner(owner2);
+        daddysPet.setBirthday(LocalDate.now());
+        daddysPet.setName("McMeow");
+        owner2.getPets().add(daddysPet);
 
         System.out.println("Loaded owners...");
 

@@ -1,5 +1,6 @@
 package sfg.petclinicsfgedition.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Owner extends Person {
@@ -7,7 +8,8 @@ public class Owner extends Person {
     private String address;
     private String city;
     private String telephone;
-    private Set<Pet> pets;
+    //initializing this here for now so we don't get an NPE when we try to add pets to the set in DataLoader
+    private Set<Pet> pets = new HashSet<>();
 
     public String getAddress() {
         return address;

@@ -27,7 +27,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
             return 1L;
         }
         //get max and increment by 1 to for the next element
-       return Collections.max(map.keySet()) + 1;
+       return Collections.max(map.keySet()) + 1L;
     }
 
     //now we don't need to pass the id to save method at call. it's generated from some map key manipulation
