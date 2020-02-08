@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import sfg.petclinicsfgedition.model.Owner;
+import sfg.petclinicsfgedition.model.PetType;
 import sfg.petclinicsfgedition.model.Vet;
 import sfg.petclinicsfgedition.services.OwnerService;
+import sfg.petclinicsfgedition.services.PetTypeService;
 import sfg.petclinicsfgedition.services.VetService;
 
 /*this bootstrap class is to load up some known data at the boot-up of the app*/
@@ -20,17 +22,28 @@ public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
     //no longer need to state @Autowired with constructor-based DI. still do it for intention stating
     @Autowired
-    public DataLoader(OwnerService ownerService, VetService vetService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
 
+        this.petTypeService = petTypeService;
     }
 
     @Override
     public void run(String[] args) throws Exception {
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDogType  = petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        dog.setName("Cat");
+        PetType savedCatType  = petTypeService.save(cat);
+
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Juju");

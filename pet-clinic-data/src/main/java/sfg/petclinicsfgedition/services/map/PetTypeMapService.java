@@ -2,6 +2,7 @@ package sfg.petclinicsfgedition.services.map;
 
 import org.springframework.stereotype.Service;
 import sfg.petclinicsfgedition.model.PetType;
+import sfg.petclinicsfgedition.services.PetTypeService;
 
 import java.util.Set;
 
