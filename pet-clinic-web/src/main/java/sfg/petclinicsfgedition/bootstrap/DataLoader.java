@@ -52,6 +52,7 @@ public class DataLoader implements CommandLineRunner {
     /*using respective services to persist objects to their respective maps (this also gives us IDs for them --
     consult AbstractMapService's save() method which calls getNextId()
      */
+
         PetType dog = new PetType();
         dog.setName("Dog");
         PetType savedDogType = petTypeService.save(dog);

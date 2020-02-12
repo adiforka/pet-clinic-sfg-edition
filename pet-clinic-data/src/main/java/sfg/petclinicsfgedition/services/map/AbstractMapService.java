@@ -23,7 +23,7 @@ public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> 
 
         /*if map is empty, return 1L for the initial ID value (course impl of this was to catch the NoSuchElem exc. that
         is thrown when trying to get max out of an empty map and send 1L as a matter of handling that exc.*/
-        if (map.size() == 0) {
+        if (map.isEmpty()) {
             return 1L;
         }
         //get max and increment by 1 to for the next element
