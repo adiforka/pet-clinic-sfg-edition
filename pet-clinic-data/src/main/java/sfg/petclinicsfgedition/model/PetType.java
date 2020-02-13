@@ -1,5 +1,7 @@
 package sfg.petclinicsfgedition.model;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -11,6 +13,7 @@ public class PetType extends BaseEntity {
     @Column(name = "name")
     private String name;
 
+    @UpdateTimestamp
     public String getName() {
         return name;
     }

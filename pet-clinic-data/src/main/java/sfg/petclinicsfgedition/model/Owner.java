@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-//now it'll be a table of owners in the db
+//now there'll be a table of owners in the db
 @Table(name = "owners")
 public class Owner extends Person {
 
