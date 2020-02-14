@@ -5,7 +5,7 @@ import sfg.petclinicsfgedition.model.BaseEntity;
 import java.util.*;
 
 //making T extend Base entity lets us make assumptions about it: namely, that it has an ID
-public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+public abstract class AbstractServiceMap<T extends BaseEntity, ID extends Long> {
 
     protected Map<Long, T> map = new HashMap<>();
 
