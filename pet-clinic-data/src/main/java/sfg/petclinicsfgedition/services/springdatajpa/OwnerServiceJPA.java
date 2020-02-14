@@ -14,14 +14,14 @@ import java.util.Set;
 @Service
 //adding this without an active profile to have this ignored and have the map-service for owner wired up
 @Profile("SDJpa")
-public class OwnerSDJpaService implements OwnerService {
+public class OwnerServiceJPA implements OwnerService {
 
     private final OwnerRepository ownerRepository;
     private final PetRepository petRepository;
     private final PetTypeRepository petTypeRepository;
 
-    public OwnerSDJpaService(OwnerRepository ownerRepository, PetRepository petRepository,
-                             PetTypeRepository petTypeRepository) {
+    public OwnerServiceJPA(OwnerRepository ownerRepository, PetRepository petRepository,
+                           PetTypeRepository petTypeRepository) {
         this.ownerRepository = ownerRepository;
         this.petRepository = petRepository;
         this.petTypeRepository = petTypeRepository;
