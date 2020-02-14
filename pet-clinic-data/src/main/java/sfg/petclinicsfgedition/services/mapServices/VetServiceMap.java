@@ -1,4 +1,4 @@
-package sfg.petclinicsfgedition.services.map;
+package sfg.petclinicsfgedition.services.mapServices;
 
 import org.springframework.stereotype.Service;
 import sfg.petclinicsfgedition.model.Speciality;

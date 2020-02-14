@@ -1,4 +1,4 @@
-package sfg.petclinicsfgedition.services.map;
+package sfg.petclinicsfgedition.services.mapServices;
 
 import sfg.petclinicsfgedition.model.BaseEntity;
 
