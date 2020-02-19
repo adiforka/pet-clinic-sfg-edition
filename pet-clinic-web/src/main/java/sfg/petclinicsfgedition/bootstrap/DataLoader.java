@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import sfg.petclinicsfgedition.model.*;
-import sfg.petclinicsfgedition.services.OwnerService;
-import sfg.petclinicsfgedition.services.PetTypeService;
-import sfg.petclinicsfgedition.services.SpecialityService;
-import sfg.petclinicsfgedition.services.VetService;
+import sfg.petclinicsfgedition.services.*;
 
 import java.time.LocalDate;
 
@@ -25,15 +22,17 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     //no longer need to state @Autowired with constructor-based DI. still do it for intention stating
     @Autowired
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                      SpecialityService specialityService) {
+                      SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -79,7 +78,6 @@ public class DataLoader implements CommandLineRunner {
         owner1.setAddress("12 JSON st.");
         owner1.setCity("Johannesburg");
         owner1.setTelephone("334-332-355");
-        ownerService.save(owner1);
 
         Pet jujusPet = new Pet();
         jujusPet.setPetType(savedDogType);
@@ -88,13 +86,20 @@ public class DataLoader implements CommandLineRunner {
         jujusPet.setName("Butch");
         owner1.getPets().add(jujusPet);
 
+        ownerService.save(owner1);
+
+        Visit dogVisit = new Visit();
+        dogVisit.setPet(jujusPet);
+        dogVisit.setDescription("Limping doggy");
+        dogVisit.setDate(LocalDate.now());
+        visitService.save(dogVisit);
+
         Owner owner2 = new Owner();
         owner2.setFirstName("Daddy");
         owner2.setLastName("McPhee");
         owner2.setAddress("342 Peekaboo Av.");
         owner2.setCity("Chicago");
         owner2.setTelephone("555-643-312");
-        ownerService.save(owner2);
 
         Pet daddysPet = new Pet();
         daddysPet.setPetType(savedCatType);
@@ -102,6 +107,13 @@ public class DataLoader implements CommandLineRunner {
         daddysPet.setBirthday(LocalDate.now());
         daddysPet.setName("McMeow");
         owner2.getPets().add(daddysPet);
+        ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(daddysPet);
+        catVisit.setDescription("Sneezy kitty");
+        catVisit.setDate(LocalDate.now());
+        visitService.save(catVisit);
 
         System.out.println("Loaded owners...");
 
