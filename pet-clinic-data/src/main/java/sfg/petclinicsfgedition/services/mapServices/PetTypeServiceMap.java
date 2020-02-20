@@ -8,7 +8,7 @@ import sfg.petclinicsfgedition.services.PetTypeService;
 import java.util.Set;
 
 @Service
-@Profile(value = {"default"})
+@Profile({"default", "map"})
 public class PetTypeServiceMap extends AbstractServiceMap<PetType, Long> implements PetTypeService {
 
     @Override

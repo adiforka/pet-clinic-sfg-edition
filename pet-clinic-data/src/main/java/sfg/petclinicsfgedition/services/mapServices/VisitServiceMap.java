@@ -8,7 +8,7 @@ import sfg.petclinicsfgedition.services.VisitService;
 import java.util.Set;
 
 @Service
-@Profile(value = {"default"})
+@Profile({"default", "map"})
 public class VisitServiceMap extends AbstractServiceMap<Visit, Long> implements VisitService {
 
     @Override

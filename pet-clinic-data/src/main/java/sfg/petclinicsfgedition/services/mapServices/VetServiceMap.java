@@ -10,7 +10,7 @@ import sfg.petclinicsfgedition.services.VetService;
 import java.util.Set;
 
 @Service
-@Profile(value = {"default"})
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractServiceMap<Vet, Long> implements VetService {
 
     private final SpecialityService specialityService;
