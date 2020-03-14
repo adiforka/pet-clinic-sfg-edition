@@ -83,7 +83,7 @@ public class DataLoader implements CommandLineRunner {
         jujusPet.setPetType(savedDogType);
         jujusPet.setOwner(owner1);
         jujusPet.setBirthday(LocalDate.now());
-        jujusPet.setName("Butch");
+        jujusPet.setName("Scout");
         owner1.getPets().add(jujusPet);
         ownerService.save(owner1);
 
