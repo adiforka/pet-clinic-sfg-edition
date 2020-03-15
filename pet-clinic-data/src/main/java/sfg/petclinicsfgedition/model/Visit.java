@@ -8,7 +8,6 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "visits")
@@ -24,6 +23,7 @@ public class Visit extends BaseEntity  {
     @JoinColumn(name = "pet_visit")
     private Pet pet;
 
+    @Builder
     public Visit(Long id, String description, Pet pet) {
         super(id);
         this.date = LocalDate.now();

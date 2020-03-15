@@ -44,11 +44,6 @@
             <optional>true</optional>
         </dependency>
 
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-        </dependency>
-
         <!-- webjars found through properties pasted in above-->
         <dependency>
             <groupId>org.webjars</groupId>
