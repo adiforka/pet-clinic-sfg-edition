@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
-//adding this without an active profile to have this ignored and have the map-service for owner wired up
+//adding this without an active profile to have this ignored and have the map-service for owner wired in
 @Profile("SDJpa")
 public class OwnerServiceJPA implements OwnerService {
 
