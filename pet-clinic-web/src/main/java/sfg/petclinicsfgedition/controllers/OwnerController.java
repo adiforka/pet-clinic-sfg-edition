@@ -3,6 +3,7 @@ package sfg.petclinicsfgedition.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import sfg.petclinicsfgedition.services.OwnerService;
 
@@ -21,7 +22,7 @@ public class OwnerController {
         this.ownerService = ownerService;
     }
 
-    @RequestMapping({"", "/", "/index", "/index.html"})
+    @GetMapping({"", "/", "/index", "/index.html"})
     public String listOwners(Model model) {
 
         //passing attribute named owners to the view. then returning view called owners/index
