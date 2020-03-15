@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!--Lifted over from SPC-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Clinic Index</title>
+</head>
+<body>
+    <!--adding this as a placeholder so that IntelliJ doesn't delete the namespace above "cause no tags are used
+    also, framing index page in single quotes as well to avoid it getting parsed as an expression--"-->
+    <h2 th:text="#{welcome}">Welcome</h2>
+
+    <div class="row">
+        <div class="col-md-12">
+            <img class="img-responsive" src="../static/resources/images/pets.png" th:src="@{/resources/images/pets.png}"/>
+        </div>
+    </div>
+</body>
+</html>

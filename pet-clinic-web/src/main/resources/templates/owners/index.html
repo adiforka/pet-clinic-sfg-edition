@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Owners</title>
+</head>
+<body>
+<!--comment hint for IntelliJ so its intelli-sense connects owner variable to the Owner type-->
+<!--/*@thymesVar id="owner" type=sfg.petclinicsfgedition.model.Owner*/-->
+<h2 th:text="'List of Owners'">List of Owners...</h2>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th style="width: 150px;">Id</th>
+            <th style="width: 150px;">First Name</th>
+            <th style="width: 150px;">Last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--/*from the object returned by model "owners"--iterate through it and get every instance a row
+        in every row get an id, firstName, lastName properties as columns*/-->
+        <tr th:each="owner : ${owners}">
+            <!--the question mark in owner?.id is a null safe operator in case owner comes back as null. not needed here-->
+            <td th:text="${owner?.id}">1</td>
+            <td th:text="${owner.firstName}">Jeffrey</td>
+            <td th:text="${owner.lastName}">Kaminsky</td>
+        </tr>
+        </tbody>
+    </table>
+</body>
+</html>
