@@ -26,21 +26,20 @@ import static org.mockito.Mockito.*;
 @ExtendWith(MockitoExtension.class)
 class OwnerServiceJPATest {
 
-    public static final String LAST_NAME = "Kirby";
+
     @Mock
     OwnerRepository ownerRepository;
-
     @Mock
     PetRepository petRepository;
-
     @Mock
     PetTypeRepository petTypeRepository;
+
+    public static final String LAST_NAME = "Kirby";
 
     /*instructor says we can do this because there's a single constr. in tested class that has all these dependencies
      * alternatively, use MockitoAnnotations.initMocks() in setUp method*/
     @InjectMocks
     OwnerServiceJPA service;
-    final String lastName = LAST_NAME;
     Owner returnOwner;
 
     @BeforeEach
@@ -58,7 +57,7 @@ class OwnerServiceJPATest {
         when(ownerRepository.findByLastName(any())).thenReturn(returnedOwner);
 
         //the actual test call
-        Owner kirby = service.findByLastName(lastName);
+        Owner kirby = service.findByLastName(LAST_NAME);
 
         assertEquals(LAST_NAME, kirby.getLastName());
     }
@@ -76,7 +75,7 @@ class OwnerServiceJPATest {
         //actual call (that uses the mock repo to find all and put the in returnOwnerSet)
         Set<Owner> owners = service.findAll();
 
-        assertNotNull(returnOwnerSet);
+        assertNotNull(owners);
         assertEquals(2, owners.size());
     }
 
@@ -103,14 +102,12 @@ class OwnerServiceJPATest {
 
     @Test
     void save() {
-        //this dude is just to add some owner at method call. you get the return owner back anyway through when/thenRet
-        Owner ownerToSave = Owner.builder().id(1L).build();
 
         when(ownerRepository.save(any())).thenReturn(returnOwner);
 
-        Owner savedOwner = service.save(ownerToSave);
+        Owner savedOwner = service.save(new Owner());
 
-        assertNotNull(savedOwner);
+        assertEquals(LAST_NAME, savedOwner.getLastName());
     }
 
     @Test

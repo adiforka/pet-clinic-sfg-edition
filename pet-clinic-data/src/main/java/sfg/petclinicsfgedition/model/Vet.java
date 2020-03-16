@@ -20,7 +20,7 @@ public class Vet extends Person {
     /*annotating this as builder.default for builder to take this in as it builds the object. otherwise it ignores it*/
     @Builder.Default
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "vet_specialities", joinColumns = @JoinColumn(name = "vet_id"),
+    @JoinTable(name = "vets_specialities", joinColumns = @JoinColumn(name = "vet_id"),
             inverseJoinColumns = @JoinColumn(name = "speciality_id"))
     //avoiding an NPE
     private Set<Speciality> specialities = new HashSet<>();
