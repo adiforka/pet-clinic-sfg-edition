@@ -15,22 +15,22 @@ import javax.persistence.Table;
 @Table(name = "types")
 public class PetType extends BaseEntity {
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "description")
+    private String description;
 
     @Builder
-    public PetType(Long id, String name) {
+    public PetType(Long id, String description) {
         super(id);
-        this.name = name;
+        this.description = description;
     }
 
     @UpdateTimestamp
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 

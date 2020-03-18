@@ -51,7 +51,6 @@ class OwnerServiceMapTest {
     @Test
     void saveWithId() {
         Long id = 2L;
-
         Owner owner2 = Owner.builder().id(id).build();
         Owner savedOwner = service.save(owner2);
 
