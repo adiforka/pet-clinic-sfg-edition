@@ -23,16 +23,6 @@ public class OwnerServiceMap extends AbstractServiceMap<Owner, Long> implements 
     }
 
     @Override
-    public Set<Owner> findAll() {
-        return super.findAll();
-    }
-
-    @Override
-    public Owner findById(Long id) {
-        return super.findById(id);
-    }
-
-    @Override
     public Owner findByLastName(String lastName) {
         return this.findAll().stream()
                 .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
@@ -43,7 +33,6 @@ public class OwnerServiceMap extends AbstractServiceMap<Owner, Long> implements 
     @Override
     public Owner save(Owner owner) {
 
-        //making sure we have IDs for Pet and PetType (as of now--UNTESTED)
         if (owner != null) {
             if (owner.getPets() != null) {
                 owner.getPets().forEach(pet ->
@@ -59,8 +48,6 @@ public class OwnerServiceMap extends AbstractServiceMap<Owner, Long> implements 
 
                     if (pet.getId() == null) {
                         Pet savedPet = petService.save(pet);
-                        /*so if ID has been set for Pet in the map,
-                        why is he setting it for Pet again here, using same value, no less?*/
                         pet.setId(savedPet.getId());
                     }
                 });
@@ -69,15 +56,5 @@ public class OwnerServiceMap extends AbstractServiceMap<Owner, Long> implements 
             return super.save(owner);
         } else
             return null;
-    }
-
-    @Override
-    public void deleteById(Long id) {
-        super.deleteById(id);
-    }
-
-    @Override
-    public void delete(Owner owner) {
-        super.delete(owner);
     }
 }

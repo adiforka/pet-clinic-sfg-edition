@@ -7,7 +7,7 @@ import org.springframework.test.context.ContextConfiguration;
 import sfg.petclinicsfgedition.PetClinicSfgEditionApplication;
 
 @SpringBootTest(classes = PetClinicSfgEditionApplication.class)
-public class PetClinicSfgEditionApplicationTests {
+public class PetClinicSfgEditionApplicationIT {
 
     @Test
     public void contextLoads() {
